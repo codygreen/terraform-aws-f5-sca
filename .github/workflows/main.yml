@@ -1,16 +1,9 @@
-workflow "Terraform" {
-  resolves = "terraform-plan"
-  on = "pull_request"
-}
+name: CI
 
-action "filter-to-pr-open-synced" {
-  uses = "actions/bin/filter@master"
-  args = "action 'opened|synchronize'"
-}
+on: [push]
 
 action "terraform-fmt" {
   uses = "hashicorp/terraform-github-actions/fmt@v0.4.1"
-  needs = "filter-to-pr-open-synced"
   env = {
     TF_ACTION_WORKING_DIR = "."
   }
