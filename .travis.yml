@@ -16,14 +16,6 @@ before_install:
   - mv /tmp/terraform ~/bin
   - export PATH="~/bin:$PATH"
 
-jobs:
-  includes:
-    - stage: test
-      name: "Validate Terraform"
-      script: terraform init 
-      script: terraform validate 
-      name: "Verify Terraform Formatting"
-      script: terraform fmt -check -recursive
-    
-stages:
-  - test
+script: terraform init 
+script: terraform validate 
+script: terraform fmt -check -recursive
