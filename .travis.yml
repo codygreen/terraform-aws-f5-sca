@@ -16,6 +16,7 @@ before_install:
   - mv /tmp/terraform ~/bin
   - export PATH="~/bin:$PATH"
 
-script: terraform init 
-script: terraform validate 
-script: terraform fmt -check -recursive
+script: 
+  - terraform init 
+  - terraform validate 
+  - terraform fmt -check -recursive
