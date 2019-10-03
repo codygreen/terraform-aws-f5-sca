@@ -17,15 +17,10 @@ before_install:
   - mv /tmp/terraform ~/bin
   - export PATH="~/bin:$PATH"
 
-script: terraform init 
-on: 
-  branch: master
-
-script: terraform validate 
-on: 
-  branch: master
-
-
-script: terraform fmt -check -recursive
-on:
-  branch: master
+jobs:
+  includes:
+    - stage: "Validate and Lint"
+      script: terraform init 
+      script: terraform validate 
+      script: terraform fmt -check -recursive
+    
