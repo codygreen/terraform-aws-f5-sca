@@ -6,8 +6,7 @@ branches:
     - master
 
 env:
-  - TF_INPUT=false
-  - TF_IN_AUTOMATION=true
+  - TF_INPUT=false TF_IN_AUTOMATION=true
 
 # Install terraform
 before_install:
