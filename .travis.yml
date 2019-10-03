@@ -18,8 +18,12 @@ before_install:
 
 jobs:
   includes:
-    - stage: "Validate and Lint"
+    - stage: test
+      name: "Validate Terraform"
       script: terraform init 
       script: terraform validate 
+      name: "Verify Terraform Formatting"
       script: terraform fmt -check -recursive
     
+stages:
+  - test
