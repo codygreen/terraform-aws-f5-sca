@@ -20,4 +20,4 @@ script:
   - terraform init 
   - terraform validate 
   - terraform fmt -check -recursive
-  - terraform plan -var="AccessKeyID=$AccessKeyID"
+  - terraform plan -var="AccessKeyID=$AccessKeyID" -var="SecretAccessKey=$SecretAccessKey" -var="ec2_key_name=$ec2_key_name"
